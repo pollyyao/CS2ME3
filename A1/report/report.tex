@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    unicode=false}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{CS 2ME3 Assignment 1 Report}
+\author{Name: Polly yao
+             \and 
+              MacId: yaos5}
+
+\begin {document}
+\maketitle
+
+\lstset{language=Python, basicstyle=\tiny,breaklines=true,showspaces=false,showstringspaces=false,breakatwhitespace=true}
+
+\def\thesection{\Alph{section}} 
+
+\section{Code for CircleADT.py} \label{CircleSect}
+
+\noindent \lstinputlisting{../src/CircleADT.py}
+
+\newpage
+
+\section{Code for Statistics.py} \label{StatisticsSect}
+
+\noindent \lstinputlisting{../src/Statistics.py}
+
+\newpage
+
+\section{Code for testCircles.py} \label{testSect}
+
+\noindent \lstinputlisting{../src/TestCircles.py}
+
+\newpage
+
+\section{Makefile} \label{MakefileSect}
+
+\lstset{language=make}
+\noindent \lstinputlisting{../Makefile}
+
+\newpage
+
+\section{Partner's CircleADT Code} \label{PartnerCodeSect}
+
+\lstset{language=Python}
+
+\noindent \lstinputlisting{../CircleADT.py}
+
+\newpage
+
+\section{Partner's Statistics Code} \label{PartnerCodeSect}
+
+\lstset{language=Python}
+
+\noindent \lstinputlisting{../Statistics.py}
+
+\newpage
+
+\section*{Testing results of my files and my partner's files}
+The results of testing my CircleADT file and Statistics file came out successfully.
+Each method is tested and passed by at least one test case. The rank method
+is specifically tested with a test case which include duplicates, and this test case
+has also successfully passed through. After finished testing my partner's file, 
+several problemes  arise. First, the result came out different on the insideBox 
+method between my partner and I. Second, my test cases does not work on my
+partner's Statistics module, every method in his Statistis module assume to take
+in four instances of CircleT seperately which means his methods need to take in 
+four arguments, while all my methods in Statistics file only takes in one argument 
+which is a list of instances of CircleT. Other than all the problems addressed 
+previously, all other methods in his CircleADT.py works out perfectly, they have
+passes through all my test cases and the result were exactly the same as mine.
+
+
+\section*{Discussion on the test results}
+As stated previously,  my result for insideBox method is different from the result 
+of my partner's. His insideBox implemetation assumes a circle is inside a box if the 
+circle's border is less than or equal to the border of the box, and my insideBox method 
+assumes a circle is inside a box if the circle borader is only less than the border of the box.  
+I consider both of our implementation for this method is appropriate, however we should 
+all state our assumption in the doxygen comments.  Second, the conflicts occurs in the 
+input arguments of Statistics module. My partner's module need to take in four instances 
+of CircleT seperately and mine takes in a list of instances of CircleT, however his avaerage 
+and standard deviation function works out perfectly after I changed my test cases to 
+four seperate instance of CircleT. The result of my partner's rank function is still incorrect 
+even after i changed the input into four seperate instance of CircleT; as I looked at his 
+code in details, for every element in the given input list, the function finds its corresponding 
+index in the sorted  list. However my implementation is exactly the opposite, for every 
+element in the sorted list, my function finds its corresponding index in the given input list, 
+and this is also what the instruction ask us to do. Finally, my partner did not take care of 
+the situation where there is a tie in the list. From doing this exercise, I learned that 
+documentation is very important for programs, especially when we have an assumption,
+we should always state it in the doxygen comments.
+
+\newpage
+\section*{Discussion on how to handle the value of pi}
+I have used the pi value from the standard math library of python. I have made this chocie 
+because i think the pi value from the library will be more accurate instead of rounding the 
+value myself. If we want to reuse this function in another procedure or class, the accurate 
+result from previous step will greatly reduce the precision error in the final result. Using 
+libraries(like numpy) has for sure improve the reliablilty since they are standardized, 
+and their result will be very accurate,therefore it will be very reliable for other class 
+or function to use it. The libraries could also make the program very productive since the 
+algorithm implemented by ourselves might not be as efficiencent and quick as the one in 
+the library. From this exersice, I have observed the differences of specifications or 
+documentation would acutally cause differences in implementation. For examle, the 
+specification in my Statistics.py is different from what my partner has in his Statistics.py 
+since he takes in a different set of parameters.
+
+
+
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    unicode=false}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{CS 2ME3 Assignment 2 Report}
+\author{Name: Polly yao
+             \and 
+              MacId: yaos5}
+
+\begin {document}
+\maketitle
+
+\lstset{language=Python, basicstyle=\tiny,breaklines=true,showspaces=false,showstringspaces=false,breakatwhitespace=true}
+
+\def\thesection{\Alph{section}} 
+
+\section{Code for pointADT.py} \label{pointSect}
+
+\noindent \lstinputlisting{../src/pointADT.py}
+
+\newpage
+
+\section{Code for lineADT.py} \label{lineSect}
+
+\noindent \lstinputlisting{../src/lineADT.py}
+
+\newpage
+
+\section{Code for circleADT.py} \label{cirlceSect}
+
+\noindent \lstinputlisting{../src/circleADT.py}
+
+\newpage
+
+\section{Code for deque.py} \label{dequeSect}
+
+\noindent \lstinputlisting{../src/deque.py}
+
+\newpage
+
+\section{Code for testCircleDeque.py} \label{testCircleDequeSect}
+
+\noindent \lstinputlisting{../src/testCircleDeque.py}
+
+\newpage
+
+\section{Makefile} \label{MakefileSect}
+
+\lstset{language=make}
+\noindent \lstinputlisting{../Makefile}
+
+\newpage
+
+\section{Partner's circleADT Code} \label{PartnerCodeSect}
+
+\lstset{language=Python}
+
+\noindent \lstinputlisting{../src/srcPartner/circleADT.py}
+
+\section*{Testing results of my files}
+
+The results of testing my files came out successfully. Twenty test cases all completed in
+0.067 seconds. However, I realized I have missed to include some important test cases.
+Therefore, I decided to add some extra test cases just to see if my code really functions 
+properly. First, I have added a test case for negative rotation, I can see my code functions
+perfectly since if I rotate the point with the same radian both in positive and negative direction,
+and the x and y coordinate will evetually go back to its original point. Second, I have added a 
+test case for zero radians, and it also came out successfully, the point did not rotate at all. Third, 
+i have added a test case for midpoint of a line of length zero, and the test was succusseful,
+the midpoint of a line of length zero is the point itself. Overall 
+
+\section*{Testing results of my files combined my partner's files}
+The result of running my partner's files completed in 0.134 seconds. total of 20 test cases with 18 passed 
+and 2 failed. testForce ans test intersect are two cases that failed. After seeing my partner's Force method,
+I realized my force method is not appropriate, I should not create a counter method myself, and I should use
+the functional language such as lambda. In the intersect method, I should have named my x and y componet 
+as xc and yc as specified in the beginning of the pointADT module.
+
+\section*{Discussion on the test results}
+As stated previously,  my implementation for force and intersect method is different from 
+my partner's. I think implement the correct specification and name is very important, In my
+intersect method, I missed read the xc and yc coordinate which resulted in a non standardized
+module. The formal mudule interface specification in this assignment makes the assignment more
+standardize, not too much assumption need to stated. The advantages of using pyunit is that it
+it could give the developer a earlier notice of what went wrong in the code instead of leading to a disaster
+in the end. The pyunit method is also very simple to understand and gives the developer a time about
+the efficeiency and perfomance of the code.
+
+
+
+
+\end{document}
